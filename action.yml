@@ -1,0 +1,22 @@
+---
+name: 'firefox-publish-action'
+description: 'Publish browser extension using the Firefox Signing API v4'
+inputs:
+  firefox-guid:
+    description: 'Addon UUID (including the opening and closing brackets {}) or the extension identifier (yourextension@domain)'
+    required: true
+  firefox-jwt-issuer:
+    description: 'JWT Issuer'
+    required: true
+  firefox-jwt-secret:
+    description: 'JWT Secret'
+    required: true
+  firefox-manifest:
+    description: 'Manifest location'
+    required: true
+  zip:
+    required: true
+    description: 'Input file'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
