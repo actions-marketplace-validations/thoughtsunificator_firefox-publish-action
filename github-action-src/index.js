@@ -41,7 +41,11 @@ import core from '@actions/core'
 		const data = await response.json()
 
 		if(response.status !== 200 && response.status !== 202) {
-			throw new Error(data.error || data.detail)
+			if(data.error || data.detail) {
+				throw new Error(data.error || data.detail)
+			} else {
+				throw new Error("An error occured while uploading and publishing the extension.")
+			}
 		} else {
 			core.info("Successfully published your browser extension.")
 		}
