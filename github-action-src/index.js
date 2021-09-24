@@ -24,7 +24,7 @@ import core from '@actions/core'
 		};
 
 		const token = jwt.sign(payload, core.getInput("firefox-jwt-secret"), {
-			algorithm: 'HS256',  // HMAC-SHA256 signing algorithm
+			algorithm: 'HS256',
 		});
 
 		const formData = new FormData();
